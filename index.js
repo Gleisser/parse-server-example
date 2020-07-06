@@ -4,6 +4,14 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var S3Adapter = require('parse-server').S3Adapter;
+
+var s3Adapter = new S3Adapter(
+    "AKIA3UHRFMD3KQPMB3B7",
+    "o2JI5Myqgtf4H08rkDDaa+Gwx8Kt7w5moLi2derS",
+    "motivame",
+    { directAccess: true }
+);
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
