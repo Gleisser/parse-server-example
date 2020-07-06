@@ -4,6 +4,8 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
+var S3Adapter = require('@parse/s3-files-adapter');
+var s3Adapter = new S3Adapter();
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
@@ -20,7 +22,7 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   },
-  filesAdapter: "parse-server-s3-adapter",
+  filesAdapter: s3Adapter,
   fileKey: process.env.PARSE_FILE_KEY
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
