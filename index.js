@@ -10,7 +10,7 @@ var s3Adapter = new S3Adapter(
     "process.env.AWS_ACCESS_KEY",
     "process.env.AWS_SECRET_KEY",
     "process.env.AWS_S3_BUCKET",
-    directAccess: true
+    { directAccess: true }
 );
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
